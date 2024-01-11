@@ -1,0 +1,54 @@
+.text-field{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    gap: 2px;
+}
+.my-form{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.submit-btn{
+    width:150px;
+    height: 40px;
+    background-color: #4756ac;
+    color: white;
+    border-radius: 5px;
+    border:none;
+
+}
+.error{
+    color: red;
+}
+.text-field{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.text-field label{
+font-size:20px;
+font-weight: bold;
+}
+#title, #description{
+    height: 30px;
+    padding: 5px;
+}
+
+
+.btnDiv button{
+    height: 40px;
+    width: 150px;
+    border: none;
+    outline: none; 
+    background-color: #ffd96f;
+    color: #4756ac;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+
+}

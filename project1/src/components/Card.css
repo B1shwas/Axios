@@ -1,0 +1,45 @@
+.card {
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  margin-top:10px;
+  background-color: white;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #4a5568;
+}
+.card button{
+    cursor: pointer;
+}
+.card-container{
+    display:flex;
+    gap:20px;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin: 0 auto;
+    width: calc(100vw - 175px);
+    margin-top: 10px;
+}
+.edit-delete{
+  display:flex;
+  flex-direction:column;
+  padding:1rem;
+  gap: 5px;
+}
