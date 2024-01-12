@@ -33,13 +33,19 @@ export const CardProvider = ({ children }) => {
     setIsNotEmptyArray(true);
   };
 
-  const addComment = (cardId, comment) => {
+  const addComment = (cardId, commentId, comment) => {
     setArr((prevArr) => {
       const updatedCards = prevArr.map((card) => {
         if (card.id === cardId) {
+          const commentObj = {
+            id: commentId,
+            text: comment,
+          };
           return {
             ...card,
-            comments: card.comments ? [...card.comments, comment] : [comment],
+            comments: card.comments
+              ? [...card.comments, commentObj]
+              : [commentObj],
           };
         }
         return card;
@@ -57,6 +63,23 @@ export const CardProvider = ({ children }) => {
     setIsNotEmptyArray(updatedCards.length > 0);
   };
 
+  const deleteComment = (itemId, commentId) => {
+    const updatedCards = arr.map((card) => {
+      if (card.id === itemId) {
+        const updatedComments = card.comments.filter(
+          (comment) => comment.id !== commentId
+        );
+        return {
+          ...card,
+          comments: updatedComments,
+        };
+      }
+      return card;
+    });
+    localStorage.setItem("notes", JSON.stringify(updatedCards));
+    setArr(updatedCards);
+  };
+
   const editCard = (itemId, updatedCard) => {
     setArr((prevArr) => {
       const updatedCards = prevArr.map((card) => {
@@ -64,6 +87,31 @@ export const CardProvider = ({ children }) => {
           return {
             ...card,
             ...updatedCard,
+          };
+        }
+        return card;
+      });
+      localStorage.setItem("notes", JSON.stringify(updatedCards));
+      return updatedCards;
+    });
+  };
+
+  const editComment = (itemId, updatedComment, commentId) => {
+    setArr((prevArr) => {
+      const updatedCards = prevArr.map((card) => {
+        if (card.id === itemId) {
+          const updatedComments = card.comments.map((comment) => {
+            if (comment.id === commentId) {
+              return {
+                ...comment,
+                text: updatedComment,
+              };
+            }
+            return comment;
+          });
+          return {
+            ...card,
+            comments: updatedComments,
           };
         }
         return card;
@@ -86,6 +134,8 @@ export const CardProvider = ({ children }) => {
         isOpen,
         onOpen,
         onClose,
+        editComment,
+        deleteComment,
       }}
     >
       {children}

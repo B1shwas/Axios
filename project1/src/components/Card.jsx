@@ -12,7 +12,7 @@ import FormikCom from "./FormikCom";
 import ReactDatePicker from "react-datepicker";
 
 const Card = () => {
-  const { arr, isNotEmptyArray, deleteCard, isOpen, onClose, onOpen } =
+  const { arr, isNotEmptyArray, deleteCard, isOpen, onClose, onOpen} =
     useContext(CardContext);
 
   const handleDelete = (itemId) => {
