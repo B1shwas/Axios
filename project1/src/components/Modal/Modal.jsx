@@ -10,6 +10,7 @@ const Modal = ({ isOpen, onClose, children }) => {
     setCategoryOpen(false);
     onClose();
   };
+
   return createPortal(
     <>
       {isOpen && (

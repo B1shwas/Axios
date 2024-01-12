@@ -34,6 +34,7 @@ const FormikCom = ({ editMode, editVal, onClose, setEditMode }) => {
     updateArr,
     editCard,
     isOpen,
+    setCategoryOpen,
     categoryOpen,
     updateCategoryArr,
     categoryArr,
@@ -75,7 +76,7 @@ const FormikCom = ({ editMode, editVal, onClose, setEditMode }) => {
       category: values.category,
     };
     updateCategoryArr(newItem);
-    categoryOpen(false);
+    setCategoryOpen(false);
     onClose();
   };
 
