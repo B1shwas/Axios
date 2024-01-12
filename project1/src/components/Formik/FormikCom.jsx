@@ -10,6 +10,10 @@ const FormikCom = ({ editMode, editVal, onClose, setEditMode }) => {
     description: Yup.string().required("Description is required"),
   });
 
+  const validationSchemaCategory = Yup.object().shape({
+    category: Yup.string().required("Category is required"),
+  });
+
   const initialValues = editMode
     ? {
         id: editVal.id,
@@ -22,7 +26,18 @@ const FormikCom = ({ editMode, editVal, onClose, setEditMode }) => {
         description: "",
       };
 
-  const { updateArr, editCard, isOpen } = useContext(CardContext);
+  const initialValuesCategory = {
+    category: "",
+  };
+
+  const {
+    updateArr,
+    editCard,
+    isOpen,
+    categoryOpen,
+    updateCategoryArr,
+    categoryArr,
+  } = useContext(CardContext);
 
   const handleSubmit = (values) => {
     if (editMode) {
@@ -39,6 +54,7 @@ const FormikCom = ({ editMode, editVal, onClose, setEditMode }) => {
         id: values.id,
         title: values.title,
         description: values.description,
+        category: values.category,
         date: new Date().toLocaleDateString("en-US", {
           month: "2-digit",
           day: "2-digit",
@@ -53,7 +69,38 @@ const FormikCom = ({ editMode, editVal, onClose, setEditMode }) => {
     onClose();
   };
 
-  return (
+  const handleSubmitCategory = (values) => {
+    const newItem = {
+      category: values.category,
+    };
+    updateCategoryArr(newItem);
+    categoryOpen(false);
+    onClose();
+  };
+
+  return categoryOpen ? (
+    <Formik
+      initialValues={initialValuesCategory}
+      validationSchema={validationSchemaCategory}
+      onSubmit={handleSubmitCategory}
+    >
+      <Form className="my-form">
+        <div className="text-field">
+          <label htmlFor="category">Category:</label>
+          <Field
+            type="text"
+            id="category"
+            name="category"
+            placeholder="Add category..."
+          />
+          <ErrorMessage name="category" component="div" className="error" />
+        </div>
+        <button type="submit" className="submit-btn">
+          {editMode ? "Save" : "Submit"}
+        </button>
+      </Form>
+    </Formik>
+  ) : (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
@@ -80,6 +127,18 @@ const FormikCom = ({ editMode, editVal, onClose, setEditMode }) => {
             placeholder="Add description..."
           />
           <ErrorMessage name="description" component="div" className="error" />
+        </div>
+        <div>
+          <label htmlFor="category" style={{ marginRight: "10px" }}>
+            Select Category
+          </label>
+          <Field as="select" name="category">
+            {categoryArr.map((item) => (
+              <option key={item.category} value={item.category}>
+                {item.category}
+              </option>
+            ))}
+          </Field>
         </div>
 
         <button type="submit" className="submit-btn">

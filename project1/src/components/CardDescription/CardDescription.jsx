@@ -9,8 +9,7 @@ import { FaRegSave } from "react-icons/fa";
 
 const CardDescription = () => {
   const { title } = useParams();
-  const { arr, addComment, editComment, deleteComment } =
-    useContext(CardContext);
+  const { addComment, editComment, deleteComment } = useContext(CardContext);
   const [comment, setComment] = useState("");
   const [editingComment, setEditingComment] = useState(null);
   const [editedComment, setEditedComment] = useState("");

@@ -4,16 +4,18 @@ import { CardProvider } from "./context/Cardcontext";
 import Card from "./components/Card/Card";
 import CardDescription from "./components/CardDescription/CardDescription";
 import "./App.css";
+import TopNav from "./components/TopNav/TopNav";
 
 const App = () => {
   return (
     <CardProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Card />} />
-          <Route path="/description/:title" element={<CardDescription />} />
-        </Routes>
-      </Router>
+      <TopNav />
+        <Router>
+          <Routes>
+            <Route path="/" element={<Card />} />
+            <Route path="/description/:title" element={<CardDescription />} />
+          </Routes>
+        </Router>
     </CardProvider>
   );
 };

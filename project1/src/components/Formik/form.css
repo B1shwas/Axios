@@ -34,7 +34,7 @@
 font-size:20px;
 font-weight: bold;
 }
-#title, #description{
+#title, #description, #category{
     height: 30px;
     padding: 5px;
 }
@@ -51,4 +51,8 @@ font-weight: bold;
     font-size: 20px;
     font-weight: bold;
 
+}
+.btnDiv{
+    display: flex;
+    gap: 20px;
 }

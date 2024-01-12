@@ -4,9 +4,14 @@ const CardContext = createContext();
 
 export const CardProvider = ({ children }) => {
   const [arr, setArr] = useState([]);
+  const [categoryArr, setCategoryArr] = useState([]);
   const [isNotEmptyArray, setIsNotEmptyArray] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [categoryOpen, setCategoryOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedDate, setSelectedDate] = useState(null);
+
 
   const onOpen = () => {
     setIsOpen(true);
@@ -22,6 +27,10 @@ export const CardProvider = ({ children }) => {
       setArr(storedData);
       setIsNotEmptyArray(storedData.length > 0);
     }
+    const categoryData = JSON.parse(localStorage.getItem("category"));
+    if (categoryData) {
+      setCategoryArr(categoryData);
+    }
   }, []);
 
   const updateArr = (newItem) => {
@@ -29,6 +38,12 @@ export const CardProvider = ({ children }) => {
     setArr(updatedCards);
     localStorage.setItem("notes", JSON.stringify(updatedCards));
     setIsNotEmptyArray(true);
+  };
+
+  const updateCategoryArr = (newItem) => {
+    const updatedCategoryArr = [...categoryArr, newItem];
+    setCategoryArr(updatedCategoryArr);
+    localStorage.setItem("category", JSON.stringify(updatedCategoryArr));
   };
 
   const addComment = (cardId, commentId, comment) => {
@@ -119,6 +134,29 @@ export const CardProvider = ({ children }) => {
     });
   };
 
+const selectCategoryAndDate = (category) => {
+  if (category === "all" && !selectedDate) {
+    return arr;
+  }
+  let filteredCards = arr;
+
+  if (category !== "all") {
+    filteredCards = filteredCards.filter((card) => card.category === category);
+  }
+
+  if (selectedDate) {
+    filteredCards = filteredCards.filter((card) => {
+      const cardDate = new Date(card.date);
+      return (
+        cardDate.getMonth() === selectedDate.getMonth() &&
+        cardDate.getDate() === selectedDate.getDate()
+      );
+    });
+  }
+
+  return filteredCards;
+};
+
   return (
     <CardContext.Provider
       value={{
@@ -134,6 +172,16 @@ export const CardProvider = ({ children }) => {
         onClose,
         editComment,
         deleteComment,
+        categoryOpen,
+        setCategoryOpen,
+        updateCategoryArr,
+        categoryArr,
+        setSelectedDate,
+        selectedDate,
+        selectCategoryAndDate,
+        selectedCategory,
+        setSelectedCategory,
+
       }}
     >
       {children}

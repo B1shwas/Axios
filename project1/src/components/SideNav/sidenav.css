@@ -1,0 +1,24 @@
+.sideNav {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 2rem;
+}
+
+.sideNav h3 {
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+.notSelected {
+  width: 150px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+}
+
+.selected {
+  background-color: gray;
+  width: 150px;
+  height: 30px;
+  border: none;
+}
