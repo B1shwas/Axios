@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import CardContext from "../context/Cardcontext";
+import CardContext from "../../context/Cardcontext";
 import "./Card.css";
-import MyForm from "./Form";
+import MyForm from "../Formik/Form";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import "react-datepicker/dist/react-datepicker.css";
 
-import Modal from "./Modal";
-import FormikCom from "./FormikCom";
+import Modal from "../Modal/Modal";
+import FormikCom from "../Formik/FormikCom";
 import ReactDatePicker from "react-datepicker";
 
 const Card = () => {
-  const { arr, isNotEmptyArray, deleteCard, isOpen, onClose, onOpen} =
+  const { arr, isNotEmptyArray, deleteCard, isOpen, onClose, onOpen } =
     useContext(CardContext);
 
   const handleDelete = (itemId) => {
@@ -20,7 +20,7 @@ const Card = () => {
   };
 
   const [editItem, setEditItem] = useState(null);
-  const [startDate, setStartDate] = useState('');
+  const [startDate, setStartDate] = useState("");
   const [editMode, setEditMode] = useState(false);
   const handleEdit = (itemId) => {
     setEditMode(true);
@@ -116,7 +116,7 @@ const Card = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height:"calc(100vh - 100px)"
+            height: "calc(100vh - 100px)",
           }}
         >
           <h2

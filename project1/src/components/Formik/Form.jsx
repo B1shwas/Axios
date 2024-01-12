@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 
-import Modal from "./Modal";
+import Modal from "../Modal/Modal";
 import FormikCom from "./FormikCom";
-import useDisclosure from "../../hooks/useDisclosure";
-import CardContext from "../context/Cardcontext";
+import useDisclosure from "../../../hooks/useDisclosure";
+import CardContext from "../../context/Cardcontext";
 
 const MyForm = () => {
   const { onOpen } = useContext(CardContext);

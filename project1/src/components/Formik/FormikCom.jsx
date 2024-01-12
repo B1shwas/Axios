@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./form.css";
-import CardContext from "../context/Cardcontext";
+import CardContext from "../../context/Cardcontext";
 
 const FormikCom = ({ editMode, editVal, onClose, setEditMode }) => {
   const validationSchema = Yup.object().shape({
