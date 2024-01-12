@@ -20,7 +20,7 @@ const Card = () => {
   };
 
   const [editItem, setEditItem] = useState(null);
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState('');
   const [editMode, setEditMode] = useState(false);
   const handleEdit = (itemId) => {
     setEditMode(true);
