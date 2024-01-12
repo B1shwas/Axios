@@ -133,6 +133,7 @@ const FormikCom = ({ editMode, editVal, onClose, setEditMode }) => {
             Select Category
           </label>
           <Field as="select" name="category">
+            <option value="">Select a category</option>
             {categoryArr.map((item) => (
               <option key={item.category} value={item.category}>
                 {item.category}
