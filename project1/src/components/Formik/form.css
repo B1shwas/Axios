@@ -1,58 +1,57 @@
-.text-field{
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    gap: 2px;
+.text-field {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  gap: 2px;
 }
-.my-form{
-    width: 50vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.submit-btn{
-    width:150px;
-    height: 40px;
-    background-color: #4756ac;
-    color: white;
-    border-radius: 5px;
-    border:none;
-
-}
-.error{
-    color: red;
-}
-.text-field{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.my-form {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
 }
 
-.text-field label{
-font-size:20px;
-font-weight: bold;
+.submit-btn {
+  width: 150px;
+  height: 40px;
+  background-color: #4756ac;
+  color: white;
+  border-radius: 5px;
+  border: none;
 }
-#title, #description, #category{
-    height: 30px;
-    padding: 5px;
+.error {
+  color: red;
+}
+.text-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-
-.btnDiv button{
-    height: 40px;
-    width: 150px;
-    border: none;
-    outline: none; 
-    background-color: #ffd96f;
-    color: #4756ac;
-    border-radius: 10px;
-    font-size: 20px;
-    font-weight: bold;
-
+.text-field label {
+  font-size: 20px;
+  font-weight: bold;
 }
-.btnDiv{
-    display: flex;
-    gap: 20px;
+#title,
+#description,
+#category {
+  height: 30px;
+  padding: 5px;
+}
+
+.btnDiv button {
+  height: 40px;
+  width: 150px;
+  border: none;
+  outline: none;
+  background-color: #ffd96f;
+  color: #4756ac;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.btnDiv {
+  display: flex;
+  gap: 20px;
 }

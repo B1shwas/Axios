@@ -1,8 +1,7 @@
-import React, { useContext } from 'react'
-import MyForm from '../Formik/Form';
-import "./topnav.css"
+import React, { useContext } from "react";
+import MyForm from "../Formik/Form";
+import "./topnav.css";
 const TopNav = () => {
-
   return (
     <>
       <div className="topnav-container">
@@ -11,6 +10,6 @@ const TopNav = () => {
       </div>
     </>
   );
-}
+};
 
 export default TopNav;

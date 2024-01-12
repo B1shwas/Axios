@@ -9,11 +9,16 @@
   letter-spacing: 2px;
   font-size: 20px;
 }
-.notSelected {
+.notSelected,
+.cat-list button {
   width: 150px;
   height: 30px;
   background-color: transparent;
   border: none;
+}
+
+.cat-list button:hover {
+  background-color: gray;
 }
 
 .selected {
@@ -21,4 +26,19 @@
   width: 150px;
   height: 30px;
   border: none;
+}
+
+.cat-list {
+  display: flex;
+  width: 190px;
+}
+.cat-list button {
+  margin-left: 10px;
+  height: ;
+}
+.cat-container {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

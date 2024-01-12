@@ -73,6 +73,7 @@ const FormikCom = ({ editMode, editVal, onClose, setEditMode }) => {
 
   const handleSubmitCategory = (values) => {
     const newItem = {
+      id: Date.now(),
       category: values.category,
     };
     updateCategoryArr(newItem);

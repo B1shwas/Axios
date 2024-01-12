@@ -10,6 +10,7 @@ import Modal from "../Modal/Modal";
 import FormikCom from "../Formik/FormikCom";
 import ReactDatePicker from "react-datepicker";
 import SideNav from "../SideNav/SideNav";
+import CategoryList from "../CategoryList/CategoryList";
 
 const Card = () => {
   const {
@@ -21,6 +22,7 @@ const Card = () => {
     selectCategoryAndDate,
     selectedCategory,
     selectedDate,
+    showCategoryList,
   } = useContext(CardContext);
 
   const handleDelete = (itemId) => {
@@ -152,12 +154,16 @@ const Card = () => {
           </div>
 
           <Modal isOpen={isOpen} onClose={onClose}>
-            <FormikCom
-              editMode={editMode}
-              editVal={editItem}
-              onClose={onClose}
-              setEditMode={setEditMode}
-            />
+            {showCategoryList ? (
+              <CategoryList />
+            ) : (
+              <FormikCom
+                editMode={editMode}
+                editVal={editItem}
+                onClose={onClose}
+                setEditMode={setEditMode}
+              />
+            )}
           </Modal>
         </div>
       </div>

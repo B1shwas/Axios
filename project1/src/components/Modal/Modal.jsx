@@ -5,9 +5,11 @@ import "./modal.css";
 import CardContext from "../../context/Cardcontext";
 
 const Modal = ({ isOpen, onClose, children }) => {
-  const { setCategoryOpen } = useContext(CardContext);
+  const { setCategoryOpen, setShowCategoryList } = useContext(CardContext);
   const handleClose = () => {
     setCategoryOpen(false);
+    setShowCategoryList(false);
+
     onClose();
   };
 

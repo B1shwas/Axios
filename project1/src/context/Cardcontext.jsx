@@ -11,7 +11,7 @@ export const CardProvider = ({ children }) => {
   const [categoryOpen, setCategoryOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedDate, setSelectedDate] = useState(null);
-
+  const [showCategoryList, setShowCategoryList] = useState(false);
 
   const onOpen = () => {
     setIsOpen(true);
@@ -134,28 +134,54 @@ export const CardProvider = ({ children }) => {
     });
   };
 
-const selectCategoryAndDate = (category) => {
-  if (category === "all" && !selectedDate) {
-    return arr;
-  }
-  let filteredCards = arr;
-
-  if (category !== "all") {
-    filteredCards = filteredCards.filter((card) => card.category === category);
-  }
-
-  if (selectedDate) {
-    filteredCards = filteredCards.filter((card) => {
-      const cardDate = new Date(card.date);
-      return (
-        cardDate.getMonth() === selectedDate.getMonth() &&
-        cardDate.getDate() === selectedDate.getDate()
-      );
+  const editCategory = (itemId, updatedCategory) => {
+    setCategoryArr((prevArr) => {
+      const updatedCategories = prevArr.map((category) => {
+        if (category.id === itemId) {
+          return {
+            ...category,
+            category: updatedCategory,
+          };
+        }
+        return category;
+      });
+      localStorage.setItem("category", JSON.stringify(updatedCategories));
+      return updatedCategories;
     });
-  }
+  };
 
-  return filteredCards;
-};
+  const selectCategoryAndDate = (category) => {
+    if (category === "all" && !selectedDate) {
+      return arr;
+    }
+    let filteredCards = arr;
+
+    if (category !== "all") {
+      filteredCards = filteredCards.filter(
+        (card) => card.category === category
+      );
+    }
+
+    if (selectedDate) {
+      filteredCards = filteredCards.filter((card) => {
+        const cardDate = new Date(card.date);
+        return (
+          cardDate.getMonth() === selectedDate.getMonth() &&
+          cardDate.getDate() === selectedDate.getDate()
+        );
+      });
+    }
+
+    return filteredCards;
+  };
+
+  const deleteCategories = (categoryId) => {
+    const updatedCategories = categoryArr.filter(
+      (category) => category.id !== categoryId
+    );
+    setCategoryArr(updatedCategories);
+    localStorage.setItem("category", JSON.stringify(updatedCategories));
+  };
 
   return (
     <CardContext.Provider
@@ -181,7 +207,10 @@ const selectCategoryAndDate = (category) => {
         selectCategoryAndDate,
         selectedCategory,
         setSelectedCategory,
-
+        showCategoryList,
+        setShowCategoryList,
+        deleteCategories,
+        editCategory,
       }}
     >
       {children}
