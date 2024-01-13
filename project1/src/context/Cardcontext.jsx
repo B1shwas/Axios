@@ -162,6 +162,7 @@ export const CardProvider = ({ children }) => {
       localStorage.setItem("notes", JSON.stringify(updatedCards));
       return updatedCards;
     });
+    setSelectedCategory(updatedCategory);
   };
 
   const selectCategoryAndDate = (category) => {
