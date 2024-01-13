@@ -12,7 +12,7 @@ export const CardProvider = ({ children }) => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedDate, setSelectedDate] = useState(null);
   const [showCategoryList, setShowCategoryList] = useState(false);
-
+  const [categoryToArr, setCategoryToArr] = useState("");
   const onOpen = () => {
     setIsOpen(true);
   };
@@ -148,6 +148,20 @@ export const CardProvider = ({ children }) => {
       localStorage.setItem("category", JSON.stringify(updatedCategories));
       return updatedCategories;
     });
+
+    setArr((prevArr) => {
+      const updatedCards = prevArr.map((card) => {
+        if (card.category === categoryToArr) {
+          return {
+            ...card,
+            category: updatedCategory,
+          };
+        }
+        return card;
+      });
+      localStorage.setItem("notes", JSON.stringify(updatedCards));
+      return updatedCards;
+    });
   };
 
   const selectCategoryAndDate = (category) => {
@@ -211,6 +225,8 @@ export const CardProvider = ({ children }) => {
         setShowCategoryList,
         deleteCategories,
         editCategory,
+        categoryToArr,
+        setCategoryToArr,
       }}
     >
       {children}

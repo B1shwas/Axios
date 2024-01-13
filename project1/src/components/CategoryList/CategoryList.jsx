@@ -5,21 +5,29 @@ import { FaEdit, FaRegSave } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 
 const CategoryList = () => {
-  const { categoryArr, deleteCategories, editCategory } =
-    useContext(CardContext);
+  const {
+    categoryArr,
+    deleteCategories,
+    editCategory,
+    categoryToArr,
+    setCategoryToArr,
+  } = useContext(CardContext);
   const [editedCategory, setEditedCategory] = useState("");
   const [isEditingCategories, setIsEditingCategories] = useState(null);
 
   const handleSaveCategory = (categoryId) => {
     editCategory(categoryId, editedCategory);
     setEditedCategory("");
+    setCategoryToArr("");
     setIsEditingCategories(null);
   };
 
   const handleEdit = (categoryId, currentText) => {
     setIsEditingCategories(categoryId);
     setEditedCategory(currentText);
+    setCategoryToArr(currentText);
   };
+  console.log("category to array", categoryToArr);
 
   const handleDelete = (id) => {
     deleteCategories(id);
