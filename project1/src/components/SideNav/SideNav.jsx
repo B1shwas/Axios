@@ -3,13 +3,8 @@ import CardContext from "../../context/Cardcontext";
 import "./sidenav.css";
 
 const SideNav = () => {
-  const {
-    categoryArr,
-    setSelectedCategory,
-    selectedCategory,
-    setShowCategoryList,
-    onOpen,
-  } = useContext(CardContext);
+  const { categoryArr, setSelectedCategory, selectedCategory } =
+    useContext(CardContext);
 
   const handleAllSelect = () => {
     setSelectedCategory("all");
@@ -17,11 +12,6 @@ const SideNav = () => {
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
-  };
-
-  const handleView = () => {
-    setShowCategoryList(true);
-    onOpen();
   };
 
   return (
@@ -55,9 +45,6 @@ const SideNav = () => {
                 </div>
               );
             })}
-          </div>
-          <div className="cat-list">
-            <button onClick={handleView}>View Category List</button>
           </div>
         </div>
       </div>

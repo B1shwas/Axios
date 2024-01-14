@@ -27,7 +27,6 @@ const CategoryList = () => {
     setEditedCategory(currentText);
     setCategoryToArr(currentText);
   };
-  console.log("category to array", categoryToArr);
 
   const handleDelete = (id) => {
     deleteCategories(id);

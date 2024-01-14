@@ -23,6 +23,7 @@ const Card = () => {
     selectedCategory,
     selectedDate,
     showCategoryList,
+    setEditMode,
   } = useContext(CardContext);
 
   const handleDelete = (itemId) => {
@@ -30,7 +31,6 @@ const Card = () => {
   };
 
   const [editItem, setEditItem] = useState(null);
-  const [editMode, setEditMode] = useState(false);
   const handleEdit = (itemId) => {
     setEditMode(true);
     setEditItem(itemId);
@@ -82,7 +82,7 @@ const Card = () => {
                 onChange={(date) => setSelectedDate(date)}
                 customInput={
                   <input
-                    id="dateInput"
+                  name="dateInput"
                     style={{
                       backgroundColor: "transparent",
                       border: "none",
@@ -157,12 +157,7 @@ const Card = () => {
             {showCategoryList ? (
               <CategoryList />
             ) : (
-              <FormikCom
-                editMode={editMode}
-                editVal={editItem}
-                onClose={onClose}
-                setEditMode={setEditMode}
-              />
+              <FormikCom editVal={editItem} onClose={onClose} />
             )}
           </Modal>
         </div>

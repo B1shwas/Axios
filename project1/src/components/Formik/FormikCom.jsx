@@ -4,11 +4,22 @@ import * as Yup from "yup";
 import "./form.css";
 import CardContext from "../../context/Cardcontext";
 
-const FormikCom = ({ editMode, editVal, onClose, setEditMode }) => {
+const FormikCom = ({ editVal, onClose }) => {
   const validationSchema = Yup.object().shape({
     title: Yup.string().required("Title is required"),
     description: Yup.string().required("Description is required"),
   });
+
+  const {
+    updateArr,
+    editCard,
+    setCategoryOpen,
+    categoryOpen,
+    updateCategoryArr,
+    categoryArr,
+    editMode,
+    setEditMode,
+  } = useContext(CardContext);
 
   const validationSchemaCategory = Yup.object().shape({
     category: Yup.string().required("Category is required"),
@@ -29,16 +40,6 @@ const FormikCom = ({ editMode, editVal, onClose, setEditMode }) => {
   const initialValuesCategory = {
     category: "",
   };
-
-  const {
-    updateArr,
-    editCard,
-    isOpen,
-    setCategoryOpen,
-    categoryOpen,
-    updateCategoryArr,
-    categoryArr,
-  } = useContext(CardContext);
 
   const handleSubmit = (values) => {
     if (editMode) {
@@ -135,14 +136,24 @@ const FormikCom = ({ editMode, editVal, onClose, setEditMode }) => {
           <label htmlFor="category" style={{ marginRight: "10px" }}>
             Select Category
           </label>
-          <Field as="select" name="category">
-            <option value="">Select a category</option>
-            {categoryArr.map((item) => (
-              <option key={item.category} value={item.category}>
-                {item.category}
-              </option>
-            ))}
-          </Field>
+          {editMode ? (
+            <Field id="category" as="select" name="category">
+              {categoryArr.map((item) => (
+                <option key={item.category} value={item.category}>
+                  {item.category}
+                </option>
+              ))}
+            </Field>
+          ) : (
+            <Field id="category" as="select" name="category">
+              <option value="">Select a category</option>
+              {categoryArr.map((item) => (
+                <option key={item.category} value={item.category}>
+                  {item.category}
+                </option>
+              ))}
+            </Field>
+          )}
         </div>
 
         <button type="submit" className="submit-btn">

@@ -8,6 +8,7 @@ export const CardProvider = ({ children }) => {
   const [isNotEmptyArray, setIsNotEmptyArray] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [editMode, setEditMode] = useState(false);
   const [categoryOpen, setCategoryOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedDate, setSelectedDate] = useState(null);
@@ -19,6 +20,7 @@ export const CardProvider = ({ children }) => {
 
   const onClose = () => {
     setIsOpen(false);
+    setEditMode(false);
   };
 
   useEffect(() => {
@@ -228,6 +230,8 @@ export const CardProvider = ({ children }) => {
         editCategory,
         categoryToArr,
         setCategoryToArr,
+        editMode,
+        setEditMode,
       }}
     >
       {children}
