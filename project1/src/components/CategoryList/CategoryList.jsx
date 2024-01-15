@@ -9,7 +9,6 @@ const CategoryList = () => {
     categoryArr,
     deleteCategories,
     editCategory,
-    categoryToArr,
     setCategoryToArr,
   } = useContext(CardContext);
   const [editedCategory, setEditedCategory] = useState("");

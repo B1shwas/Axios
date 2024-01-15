@@ -22,16 +22,16 @@ const MyForm = () => {
 
   return (
     <>
-      <div className="cat-list">
-        <button onClick={handleView}>View Category List</button>
-      </div>
       <div className="btnDiv">
+          <button onClick={handleView} style={{ background: "#90EE90" }}>
+            Category List
+          </button>
         <button
           type="button"
           onClick={onClickCategory}
           style={{ background: "#90EE90" }}
         >
-          Category
+          Add Category
         </button>
         <button type="button" onClick={onClickPost} className="open-modal-btn">
           Post
@@ -42,3 +42,4 @@ const MyForm = () => {
 };
 
 export default MyForm;
+

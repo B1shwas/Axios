@@ -9,8 +9,7 @@
   letter-spacing: 2px;
   font-size: 20px;
 }
-.notSelected,
-.cat-list button {
+.notSelected{
   width: 150px;
   height: 30px;
   background-color: transparent;
