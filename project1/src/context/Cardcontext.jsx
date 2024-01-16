@@ -11,9 +11,10 @@ export const CardProvider = ({ children }) => {
   const [editMode, setEditMode] = useState(false);
   const [categoryOpen, setCategoryOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [editCategorySelect, setEditCategorySelect] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
   const [showCategoryList, setShowCategoryList] = useState(false);
-  const [categoryToArr, setCategoryToArr] = useState("");
+  const [categoryToArr, setCategoryToArr] = useState(null);
   const onOpen = () => {
     setIsOpen(true);
   };
@@ -232,6 +233,8 @@ export const CardProvider = ({ children }) => {
         setCategoryToArr,
         editMode,
         setEditMode,
+        editCategorySelect,
+        setEditCategorySelect, 
       }}
     >
       {children}

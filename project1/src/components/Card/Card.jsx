@@ -24,6 +24,8 @@ const Card = () => {
     selectedDate,
     showCategoryList,
     setEditMode,
+    setEditCategorySelect,
+    editCategorySelect,
   } = useContext(CardContext);
 
   const handleDelete = (itemId) => {
@@ -34,9 +36,9 @@ const Card = () => {
   const handleEdit = (itemId) => {
     setEditMode(true);
     setEditItem(itemId);
+    setEditCategorySelect(itemId.category);
     onOpen();
   };
-
   const filterCards = selectCategoryAndDate(selectedCategory);
 
   const filterLength = filterCards.length;
@@ -80,6 +82,7 @@ const Card = () => {
                 showIcon
                 selected={selectedDate}
                 onChange={(date) => setSelectedDate(date)}
+                placeholderText="  Select date"
                 customInput={
                   <input
                     name="dateInput"

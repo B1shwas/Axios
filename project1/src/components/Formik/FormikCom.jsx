@@ -19,6 +19,8 @@ const FormikCom = ({ editVal, onClose }) => {
     categoryArr,
     editMode,
     setEditMode,
+    editCategorySelect,
+    setEditCategorySelect,
   } = useContext(CardContext);
 
   const validationSchemaCategory = Yup.object().shape({
@@ -121,7 +123,6 @@ const FormikCom = ({ editVal, onClose }) => {
           />
           <ErrorMessage name="title" component="div" className="error" />
         </div>
-
         <div className="text-field">
           <label htmlFor="description">Description:</label>
           <Field
@@ -137,7 +138,12 @@ const FormikCom = ({ editVal, onClose }) => {
             Select Category
           </label>
           {editMode ? (
-            <Field id="category" as="select" name="category">
+            <Field
+              id="category"
+              as="select"
+              name="category"
+              defaultValue={editCategorySelect}
+            >
               {categoryArr.map((item) => (
                 <option key={item.category} value={item.category}>
                   {item.category}
@@ -155,7 +161,6 @@ const FormikCom = ({ editVal, onClose }) => {
             </Field>
           )}
         </div>
-
         <button type="submit" className="submit-btn">
           {editMode ? "Save" : "Submit"}
         </button>
