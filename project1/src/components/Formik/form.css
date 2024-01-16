@@ -15,7 +15,7 @@
 .submit-btn {
   width: 150px;
   height: 40px;
-  background-color: #4756ac;
+  background-color: #45474b;
   color: white;
   border-radius: 5px;
   border: none;
@@ -42,17 +42,32 @@
 
 .btnDiv button {
   height: 40px;
-  width: 150px;
+  width: 120px;
   border: none;
   outline: none;
-  background-color: #ffd96f;
-  color: #4756ac;
+  color: white;
   border-radius: 10px;
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
 }
+
+.open-modal-btn {
+  background-color: #495e57;
+  transition: 0.5s ease-out;
+}
+.open-modal-btn:hover {
+  background-color: #45474b;
+}
 .btnDiv {
   display: flex;
   gap: 20px;
+}
+.categoryBtn {
+  background-color: #45474b;
+  transition: 0.5s ease-in;
+}
+
+.categoryBtn:hover {
+  background-color: #495e57;
 }

@@ -110,10 +110,18 @@ const CardDescription = () => {
               ) : (
                 <ul style={{ display: "flex", gap: "20px" }}>
                   <li>{comment.text}</li>
-                  <FaEdit
-                    onClick={() => handleEditComment(comment.id, comment.text)}
-                  />
-                  <MdDelete onClick={() => handleDeleteComment(comment.id)} />
+                  <div>
+                    <FaEdit
+                      onClick={() =>
+                        handleEditComment(comment.id, comment.text)
+                      }
+                      style={{ fontSize: "17px" }}
+                    />
+                    <MdDelete
+                      onClick={() => handleDeleteComment(comment.id)}
+                      style={{ fontSize: "17px" }}
+                    />
+                  </div>
                 </ul>
               )}
             </div>

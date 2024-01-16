@@ -51,7 +51,7 @@ const Card = () => {
         <div
           style={{
             width: "15%",
-            backgroundColor: "white",
+            backgroundColor: "#f8ec62",
             height: "calc(100vh - 80px)",
           }}
         >
@@ -67,7 +67,7 @@ const Card = () => {
           >
             <h3
               style={{
-                color: "white",
+                color: "black",
                 letterSpacing: "5px",
                 margin: "10px",
               }}
@@ -82,7 +82,7 @@ const Card = () => {
                 onChange={(date) => setSelectedDate(date)}
                 customInput={
                   <input
-                  name="dateInput"
+                    name="dateInput"
                     style={{
                       backgroundColor: "transparent",
                       border: "none",
@@ -100,7 +100,7 @@ const Card = () => {
                 {filterCards.map((item) => (
                   <div className="card" key={item.id}>
                     <img
-                      src="https://media.istockphoto.com/id/537331500/photo/programming-code-abstract-technology-background-of-software-deve.jpg?s=612x612&w=0&k=20&c=jlYes8ZfnCmD0lLn-vKvzQoKXrWaEcVypHnB5MuO-g8="
+                      src="https://cdn.britannica.com/35/238335-050-2CB2EB8A/Lionel-Messi-Argentina-Netherlands-World-Cup-Qatar-2022.jpg"
                       alt="Card Image"
                       className="card-image"
                     />
