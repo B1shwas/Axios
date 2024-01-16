@@ -20,7 +20,6 @@ const FormikCom = ({ editVal, onClose }) => {
     editMode,
     setEditMode,
     editCategorySelect,
-    setEditCategorySelect,
   } = useContext(CardContext);
 
   const validationSchemaCategory = Yup.object().shape({

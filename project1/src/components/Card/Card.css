@@ -42,3 +42,8 @@
   padding: 1rem;
   gap: 5px;
 }
+.card-image {
+  height: 209px;
+  width: 298px;
+  object-fit: cover;
+}

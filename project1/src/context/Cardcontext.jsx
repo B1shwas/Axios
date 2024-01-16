@@ -234,7 +234,7 @@ export const CardProvider = ({ children }) => {
         editMode,
         setEditMode,
         editCategorySelect,
-        setEditCategorySelect, 
+        setEditCategorySelect,
       }}
     >
       {children}
