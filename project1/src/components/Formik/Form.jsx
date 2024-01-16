@@ -1,5 +1,8 @@
 import React, { useContext } from "react";
 import CardContext from "../../context/Cardcontext";
+import { MdPostAdd } from "react-icons/md";
+import { FcAddDatabase } from "react-icons/fc";
+import { CiViewList } from "react-icons/ci";
 
 const MyForm = () => {
   const { onOpen, setCategoryOpen, setShowCategoryList } =
@@ -23,23 +26,24 @@ const MyForm = () => {
   return (
     <>
       <div className="btnDiv">
-        <button onClick={handleView} className="categoryBtn">
-          Category List
-        </button>
-        <button
-          type="button"
+        <CiViewList
+          title="Show Category List"
+          onClick={handleView}
+          style={{ fontSize: "30px", cursor: "pointer" }}
+        />
+        <FcAddDatabase
+          title="Add Category"
           onClick={onClickCategory}
-          className="categoryBtn"
-        >
-          Add Category
-        </button>
-        <button type="button"  onClick={onClickPost} className="open-modal-btn">
-          Post
-        </button>
+          style={{ fontSize: "30px", cursor: "pointer" }}
+        />
+        <MdPostAdd
+          title="Add Post"
+          onClick={onClickPost}
+          style={{ fontSize: "30px", cursor: "pointer" }}
+        />
       </div>
     </>
   );
 };
 
 export default MyForm;
-

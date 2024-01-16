@@ -51,7 +51,7 @@ const Card = () => {
         <div
           style={{
             width: "15%",
-            backgroundColor: "#f8ec62",
+            backgroundColor: "#89aae5",
             height: "calc(100vh - 80px)",
           }}
         >
