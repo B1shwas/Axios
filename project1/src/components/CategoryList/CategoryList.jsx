@@ -5,12 +5,8 @@ import { FaEdit, FaRegSave } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 
 const CategoryList = () => {
-  const {
-    categoryArr,
-    deleteCategories,
-    editCategory,
-    setCategoryToArr,
-  } = useContext(CardContext);
+  const { categoryArr, deleteCategories, editCategory, setCategoryToArr } =
+    useContext(CardContext);
   const [editedCategory, setEditedCategory] = useState("");
   const [isEditingCategories, setIsEditingCategories] = useState(null);
 
@@ -72,9 +68,11 @@ const CategoryList = () => {
                   fontSize: "18px",
                 }}
               >
-                <p>
-                  {index + 1}.{item.category}
-                </p>
+                <div style={{ width: "50%" }}>
+                  <p>
+                    {index + 1}.{item.category}
+                  </p>
+                </div>
                 <div style={{ display: "flex", gap: "20px" }}>
                   <FaEdit
                     style={{ fontSize: "20px" }}

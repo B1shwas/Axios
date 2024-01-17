@@ -15,7 +15,7 @@
 .submit-btn {
   width: 150px;
   height: 40px;
-  background-color: #45474b;
+  background-color: #89aae5;
   color: white;
   border-radius: 5px;
   border: none;
@@ -37,5 +37,19 @@
 
 .btnDiv {
   display: flex;
-  gap: 20px;
+  gap: 30px;
+}
+
+.btnDiv button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  transition: font-weight 0.3s ease-out;
+}
+
+.btnDiv button:hover {
+  text-decoration: underline;
+  font-weight: bold;
 }

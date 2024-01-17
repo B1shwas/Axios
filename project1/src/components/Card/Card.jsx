@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import CardContext from "../../context/Cardcontext";
 import "./Card.css";
@@ -25,7 +25,6 @@ const Card = () => {
     showCategoryList,
     setEditMode,
     setEditCategorySelect,
-    editCategorySelect,
   } = useContext(CardContext);
 
   const handleDelete = (itemId) => {
@@ -54,7 +53,7 @@ const Card = () => {
           style={{
             width: "15%",
             backgroundColor: "#89aae5",
-            height: "calc(100vh - 80px)",
+            height: "calc(100vh - 78px)",
           }}
         >
           <SideNav />
