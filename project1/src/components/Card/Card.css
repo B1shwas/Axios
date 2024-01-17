@@ -1,18 +1,16 @@
 .card {
-  border: 1px solid #e2e8f0;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   max-width: 300px;
   margin-top: 10px;
-  background-color: white;
 }
 
 .card-image {
   width: 100%;
   height: auto;
+  border-radius: 20px;
 }
 
 .card-content {
-  padding: 1rem;
+  margin-top: 10px;
 }
 
 .card-title {
@@ -30,7 +28,7 @@
 }
 .card-container {
   display: flex;
-  gap: 20px;
+  gap: 40px;
   flex-wrap: wrap;
   justify-content: start;
   margin-top: 10px;
@@ -39,11 +37,26 @@
 .edit-delete {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  margin: auto 2px;
   gap: 5px;
 }
 .card-image {
   height: 209px;
   width: 298px;
   object-fit: cover;
+}
+
+.card-title {
+  font-size: 20px;
+}
+
+.card-date {
+  color: gray;
+  font-size: 13px;
+}
+
+.card-link {
+  color: #A7AFC1;
+  margin-bottom: 5px;
+  font-size: 14px;
 }

@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 import CardContext from "../../context/Cardcontext";
 import "./Card.css";
 import { MdDelete } from "react-icons/md";
-import { FaEdit } from "react-icons/fa";
+import { FaEdit, FaTimes } from "react-icons/fa";
 import "react-datepicker/dist/react-datepicker.css";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 import Modal from "../Modal/Modal";
 import FormikCom from "../Formik/FormikCom";
 import ReactDatePicker from "react-datepicker";
 import SideNav from "../SideNav/SideNav";
+import { FaArrowRight } from "react-icons/fa6";
 import CategoryList from "../CategoryList/CategoryList";
 
 const Card = () => {
@@ -32,6 +34,12 @@ const Card = () => {
   };
 
   const [editItem, setEditItem] = useState(null);
+  const [isSideNavOpen, setIsSideNavOpen] = useState(false);
+
+  const handleToggleSideNav = () => {
+    setIsSideNavOpen(!isSideNavOpen);
+  };
+
   const handleEdit = (itemId) => {
     setEditMode(true);
     setEditItem(itemId);
@@ -49,21 +57,27 @@ const Card = () => {
           display: "flex",
         }}
       >
-        <div
-          style={{
-            width: "15%",
-            backgroundColor: "#89aae5",
-            height: "calc(100vh - 78px)",
-          }}
-        >
-          <SideNav />
+        <GiHamburgerMenu className="hamMenu" onClick={handleToggleSideNav} />
+        {isSideNavOpen && (
+          <div className="sideNav-popUp">
+            <div>
+            <SideNav />
+            </div>
+            <FaTimes className="close-icon" onClick={handleToggleSideNav}/>
+          </div>
+        )}
+        <div className="sideNav-container">
+          <div>
+            <SideNav />
+          </div>
         </div>
-        <div style={{ width: "85%" }}>
+        <div className="cardList">
           <div
             style={{
               display: "flex",
               justifyContent: "space-between",
               padding: "10px",
+              marginBottom: "10px",
             }}
           >
             <h3
@@ -114,10 +128,27 @@ const Card = () => {
                     >
                       <div className="card-content">
                         <h2 className="card-title">{item.title}</h2>
-                        <p style={{ color: "gray" }}>{item.date}</p>
-                        <Link to={`/description/${item.title}`}>
-                          <p style={{ marginTop: "5px" }}>View more</p>
+                        <Link
+                          to={`/description/${item.title}`}
+                          style={{ textDecoration: "none", cursor: "pointer" }}
+                        >
+                          <div style={{ display: "flex" }}>
+                            <p className="card-link">
+                              {item.description.length > 35
+                                ? item.description.slice(0, 35) + "..."
+                                : item.description}
+                            </p>
+                            <FaArrowRight
+                              style={{
+                                marginLeft: "5px",
+                                color: "#A7AFC1",
+                                fontSize: "12px",
+                                marginTop: "2px",
+                              }}
+                            />
+                          </div>
                         </Link>
+                        <p className="card-date">{item.date}</p>
                       </div>
                       <div className="edit-delete">
                         <MdDelete

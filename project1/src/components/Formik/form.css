@@ -15,7 +15,7 @@
 .submit-btn {
   width: 150px;
   height: 40px;
-  background-color: #89aae5;
+  background-color: #682ee3;
   color: white;
   border-radius: 5px;
   border: none;
@@ -29,9 +29,13 @@
   font-weight: bold;
 }
 #title,
-#description,
 #category {
   height: 30px;
+  padding: 5px;
+}
+
+#description {
+  min-height: 100px;
   padding: 5px;
 }
 
@@ -52,4 +56,52 @@
 .btnDiv button:hover {
   text-decoration: underline;
   font-weight: bold;
+}
+
+.hamMenu {
+  font-size: 25px;
+  position: absolute;
+  margin-top: 50px;
+  margin-left: 20px;
+  display: none;
+  cursor: pointer;
+}
+
+.sideNav-container {
+  width: 15%;
+  height: calc(100vh - 78px);
+  background-color: #4c545c;
+}
+.cardList {
+  width: 85%;
+}
+
+.sideNav-popUp{
+  position: fixed;
+  display: flex;
+  height: calc(100vh - 78px);
+  transition: transform 0.3s ease-in-out;
+  width: 250px;
+}
+.close-icon{
+  position: absolute;
+  font-size: 20px;
+  z-index: 5;
+  margin-left:160px;
+  margin-top: 20px;
+  cursor: pointer;
+  color: white;
+  border: 1px solid gray;
+}
+
+@media (max-width: 1300px) {
+  .sideNav-container {
+    display: none;
+  }
+  .cardList {
+    width: 100%;
+  }
+  .hamMenu {
+    display: block;
+  }
 }

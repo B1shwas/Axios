@@ -54,11 +54,11 @@ const CardDescription = () => {
         <img
           src="https://cdn.britannica.com/35/238335-050-2CB2EB8A/Lionel-Messi-Argentina-Netherlands-World-Cup-Qatar-2022.jpg"
           alt="Card Image"
-          className="card-image"
+          className="card-image-description"
         />
         <div className="text">
           <h2>{item.title}</h2>
-          <p>{item.description}</p>
+          <p className="description-text">{item.description}</p>
           <p style={{ color: "gray" }}>Date created: {item.date}</p>
         </div>
       </div>

@@ -3,30 +3,33 @@
   flex-direction: column;
   padding: 20px;
   gap: 2rem;
+  height: 100%;
+  background-color: #4c545c;
+  color: white;
 }
 
 .sideNav h3 {
   letter-spacing: 2px;
   font-size: 20px;
 }
-.notSelected{
+.notSelected {
   width: 150px;
   height: 30px;
   background-color: transparent;
   cursor: pointer;
   border: none;
+  color: #999999;
 }
-
 
 .selected {
   width: 150px;
   height: 30px;
   border: none;
-  background-color: transparent;
+  background-color: #586676;
+  border-radius: 30px;
   font-size: 20px;
-  color: #fcf6f6;
+  color: #eeaa00;
 }
-
 
 .cat-container {
   height: 600px;
