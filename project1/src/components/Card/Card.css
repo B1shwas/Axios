@@ -26,6 +26,13 @@
 .card button {
   cursor: pointer;
 }
+
+.card-above {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+}
 .card-container {
   display: flex;
   gap: 40px;
@@ -56,7 +63,16 @@
 }
 
 .card-link {
-  color: #A7AFC1;
+  color: #a7afc1;
   margin-bottom: 5px;
   font-size: 14px;
+}
+
+@media (max-width: 700px) {
+  .card-above {
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
 }

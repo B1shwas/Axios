@@ -12,6 +12,7 @@ import FormikCom from "../Formik/FormikCom";
 import ReactDatePicker from "react-datepicker";
 import SideNav from "../SideNav/SideNav";
 import { FaArrowRight } from "react-icons/fa6";
+import { BsThreeDotsVertical } from "react-icons/bs";
 import CategoryList from "../CategoryList/CategoryList";
 
 const Card = () => {
@@ -27,25 +28,35 @@ const Card = () => {
     showCategoryList,
     setEditMode,
     setEditCategorySelect,
+    searchInput,
+    setSearchInput,
   } = useContext(CardContext);
-
-  const handleDelete = (itemId) => {
-    deleteCard(itemId);
-  };
 
   const [editItem, setEditItem] = useState(null);
   const [isSideNavOpen, setIsSideNavOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null);
 
   const handleToggleSideNav = () => {
     setIsSideNavOpen(!isSideNavOpen);
   };
 
+  const handleDelete = (itemId) => {
+    setSelectedCard(null);
+    deleteCard(itemId);
+  };
+
   const handleEdit = (itemId) => {
     setEditMode(true);
     setEditItem(itemId);
+    setSelectedCard(null);
     setEditCategorySelect(itemId.category);
     onOpen();
   };
+
+  const handleThreeDotClick = (itemId) => {
+    setSelectedCard(itemId);
+  };
+
   const filterCards = selectCategoryAndDate(selectedCategory);
 
   const filterLength = filterCards.length;
@@ -61,9 +72,9 @@ const Card = () => {
         {isSideNavOpen && (
           <div className="sideNav-popUp">
             <div>
-            <SideNav />
+              <SideNav />
             </div>
-            <FaTimes className="close-icon" onClick={handleToggleSideNav}/>
+            <FaTimes className="close-icon" onClick={handleToggleSideNav} />
           </div>
         )}
         <div className="sideNav-container">
@@ -72,14 +83,7 @@ const Card = () => {
           </div>
         </div>
         <div className="cardList">
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              padding: "10px",
-              marginBottom: "10px",
-            }}
-          >
+          <div className="card-above">
             <h3
               style={{
                 color: "black",
@@ -89,6 +93,18 @@ const Card = () => {
             >
               Add Cards
             </h3>
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              style={{
+                height: "30px",
+                padding: "5px",
+                width: "250px",
+                marginTop: "10px",
+              }}
+            />
             <div style={{ marginTop: "5px" }}>
               <p>Filter cards by date:</p>
               <ReactDatePicker
@@ -150,17 +166,29 @@ const Card = () => {
                         </Link>
                         <p className="card-date">{item.date}</p>
                       </div>
-                      <div className="edit-delete">
-                        <MdDelete
-                          fontSize="20px"
-                          onClick={() => handleDelete(item.id)}
-                          style={{ cursor: "pointer" }}
+                      <div style={{ marginLeft: "5px" }}>
+                        <BsThreeDotsVertical
+                          onClick={() => handleThreeDotClick(item.id)}
+                          style={{
+                            marginTop: "10px",
+                            marginRight: "5px",
+                            cursor: "pointer",
+                          }}
                         />
-                        <FaEdit
-                          fontSize="20px"
-                          style={{ cursor: "pointer" }}
-                          onClick={() => handleEdit(item)}
-                        />
+                        {selectedCard === item.id && (
+                          <div className="edit-delete">
+                            <MdDelete
+                              fontSize="20px"
+                              onClick={() => handleDelete(item.id)}
+                              style={{ cursor: "pointer" }}
+                            />
+                            <FaEdit
+                              fontSize="20px"
+                              style={{ cursor: "pointer" }}
+                              onClick={() => handleEdit(item)}
+                            />
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>

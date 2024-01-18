@@ -15,6 +15,7 @@ export const CardProvider = ({ children }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [showCategoryList, setShowCategoryList] = useState(false);
   const [categoryToArr, setCategoryToArr] = useState(null);
+  const [searchInput, setSearchInput] = useState("");
   const onOpen = () => {
     setIsOpen(true);
   };
@@ -168,30 +169,35 @@ export const CardProvider = ({ children }) => {
     setSelectedCategory(updatedCategory);
   };
 
-  const selectCategoryAndDate = (category) => {
-    if (category === "all" && !selectedDate) {
-      return arr;
-    }
-    let filteredCards = arr;
+const selectCategoryAndDate = (category) => {
+  if (category === "all" && !selectedDate && searchInput === "") {
+    return arr;
+  }
 
-    if (category !== "all") {
-      filteredCards = filteredCards.filter(
-        (card) => card.category === category
+  let filteredCards = arr;
+
+  if (category !== "all") {
+    filteredCards = filteredCards.filter((card) => card.category === category);
+  }
+
+  if (selectedDate) {
+    filteredCards = filteredCards.filter((card) => {
+      const cardDate = new Date(card.date);
+      return (
+        cardDate.getMonth() === selectedDate.getMonth() &&
+        cardDate.getDate() === selectedDate.getDate()
       );
-    }
+    });
+  }
 
-    if (selectedDate) {
-      filteredCards = filteredCards.filter((card) => {
-        const cardDate = new Date(card.date);
-        return (
-          cardDate.getMonth() === selectedDate.getMonth() &&
-          cardDate.getDate() === selectedDate.getDate()
-        );
-      });
-    }
+  if (searchInput) {
+    filteredCards = filteredCards.filter((card) =>
+      card.title.toLowerCase().includes(searchInput.toLowerCase())
+    );
+  }
 
-    return filteredCards;
-  };
+  return filteredCards;
+};
 
   const deleteCategories = (categoryId) => {
     const updatedCategories = categoryArr.filter(
@@ -235,6 +241,8 @@ export const CardProvider = ({ children }) => {
         setEditMode,
         editCategorySelect,
         setEditCategorySelect,
+        searchInput,  
+        setSearchInput,
       }}
     >
       {children}
