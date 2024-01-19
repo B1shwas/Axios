@@ -16,7 +16,7 @@ const StudentImageDiv = () => {
         </Stack>
         <Flex gap="8px" alignItems="center">
           <Icon as={FaLocationDot} color="#999999" />
-          <Text color="#666666" whiteSpace="nowrap">Banepa-8, Tindobato, Kavrepalanchowk</Text>
+          <Text color="#666666" whiteSpace="nowrap" fontSize={{md:"16px", sm:"14px", base:"12px"}}>Banepa-8, Tindobato, Kavrepalanchowk</Text>
         </Flex>
       </Stack>
     </Flex>

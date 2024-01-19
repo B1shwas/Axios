@@ -1,5 +1,5 @@
 import "./App.css";
-import { ChakraProvider, Flex, Stack } from "@chakra-ui/react";
+import { Box, ChakraProvider, Flex, Stack } from "@chakra-ui/react";
 import SideNav from "./components/SideNav";
 import TopNav from "./components/TopNav";
 import Description from "./components/Description";
@@ -9,7 +9,13 @@ const App = () => {
     <>
       <ChakraProvider>
         <Flex>
-          <SideNav />
+          <Box
+          display={{
+            base:"none",
+            xl:"block"
+          }}>
+            <SideNav />
+          </Box>
           <Stack gap="0px">
             <TopNav />
             <Description />

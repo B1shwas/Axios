@@ -32,7 +32,7 @@ const ChartBar = () => {
       <Text fontSize="16px" lineHeight="24px">
         Attendance
       </Text>
-      <Divider w="361px" my="12px" />
+      <Divider maxW="361px" my="12px" />
       <Flex gap="48px">
         <Chart
           options={options}

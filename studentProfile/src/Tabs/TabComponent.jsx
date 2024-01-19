@@ -1,5 +1,8 @@
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@chakra-ui/react";
 import BasicInformation from "./BasicInformation/BasicInformation";
+import Remarks from "./Remarks/Remarks";
+import FeeHistory from "./FeeHistory/FeeHistory";
+import Marks from "./Marks/Marks";
 
 const selectedTabStyles = {
   borderRadius: "0px",
@@ -20,10 +23,16 @@ const TabComponent = () => {
       </TabList>
       <TabPanels>
         <TabPanel>
-          <BasicInformation/>
+          <BasicInformation />
         </TabPanel>
         <TabPanel>
-          <p>two!</p>
+          <Marks/>
+        </TabPanel>
+        <TabPanel>
+          <FeeHistory />
+        </TabPanel>
+        <TabPanel>
+          <Remarks />
         </TabPanel>
       </TabPanels>
     </Tabs>

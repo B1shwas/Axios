@@ -7,7 +7,18 @@ import CustomButton from "../Reusable Button/CustomButton";
 const IntroductionTop = () => {
   return (
     <>
-      <Flex position="absolute" w="1071px" justify="center" mt="1px">
+      <Flex
+        position={{
+          xl: "absolute",
+          lg: "absolute",
+        }}
+        w="1071px"
+        justify={{
+          xl: "center",
+          lg: "center",
+        }}
+        mt="1px"
+      >
         <Text fontSize="16px" fontWeight="semibold" mt="5px">
           Student's Profile
         </Text>

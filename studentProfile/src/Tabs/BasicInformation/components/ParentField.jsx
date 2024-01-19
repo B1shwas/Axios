@@ -40,8 +40,8 @@ const ParentField = () => {
           />
         </Flex>
       </Flex>
-      <Box borderWidth="1px" borderRadius="md" overflow="hidden">
-        <Table variant="simple" borderCollapse="separate" borderSpacing="0">
+      <Box borderWidth="1px" borderRadius="md" overflow="scroll">
+        <Table variant="simple">
           <Thead bg="#f5f5f6">
             <Tr>
               <Th borderBottomWidth="1px" borderRightWidth="1px">

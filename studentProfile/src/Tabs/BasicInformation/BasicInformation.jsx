@@ -6,7 +6,10 @@ import ParentField from "./components/ParentField";
 const BasicInformation = () => {
   return (
     <Stack gap="24px">
-      <Flex gap="12px">
+      <Flex
+        gap="12px"
+        flexDir={{ xl: "row", md: "column", sm: "column", base: "column" }}
+      >
         <InformationField />
         <ChartBar />
       </Flex>
