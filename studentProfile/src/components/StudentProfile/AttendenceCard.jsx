@@ -10,7 +10,7 @@ import {
 
 const AttendenceCard = () => {
   return (
-    <Card variant="outline" borderWidth="1px" px="16px" py="12px">
+    <Card variant="outline" borderWidth="1px" px="16px" py="12px" margin={{base:"0 auto", md:"0px"}}>
       <Stack>
         <Flex gap="12px">
           <Text fontSize="16px" fontWeight="xl">
@@ -27,7 +27,7 @@ const AttendenceCard = () => {
             TODAY
           </Tag>
         </Flex>
-        <Divider w="300px" borderWidth="1px" color="#D9D9D9" my="12px" />
+        <Divider maxW="300px" borderWidth="1px" color="#D9D9D9" my="12px" />
         <Stack>
           <Text
             letterSpacing="1px"

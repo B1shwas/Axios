@@ -12,7 +12,7 @@ const AreaChart = () => {
         "Nepali",
         "Byakaran",
         "Math",
-        "Social Studies",
+        "Social",
         "Science",
         "HPE",
         "Geography",
@@ -31,6 +31,17 @@ const AreaChart = () => {
     dataLabels: {
       enabled: false,
     },
+    legend: {
+      show: true,
+      position: "top",
+    },
+    title: {
+      text: "Marksheet",
+      style: {
+        fontSize:"16px",
+        fontFamily:"Nunito Sans",
+      }
+    }
   };
 
   const series = [

@@ -22,7 +22,7 @@ const Description = () => {
       <Card
         maxW="1103px"
         maxH="2000px"
-        marginLeft="34px"
+        marginLeft={{base:"10px", xl:"34px"}}
         marginTop="32px"
         marginBottom="46px"
         p="16px"

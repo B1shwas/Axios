@@ -16,11 +16,19 @@ import { marksData } from "../markData";
 const MarksTable = () => {
   return (
     <Stack fontSize="12px">
-      <Flex justify="space-between">
-        <Text fontSize={{lg:"18px", md:"16px", sm:"14px"}} fontWeight="600" py="6px">
+      <Flex justify="space-between" flexDir={{base: "column", sm:"row"}}>
+        <Text
+          fontSize={{ lg: "18px", md: "16px", sm: "14px" }}
+          fontWeight="600"
+          py="6px"
+        >
           Subject Wise Marks
         </Text>
-        <Select placeholder="Select option" w={{lg:"230px", md:"210px", sm:"200px", base:"190px"}}>
+        <Select
+          placeholder="Select option"
+          w={{ lg: "230px", md: "210px", sm: "200px", base: "190px" }}
+          focusBorderColor="gray.200"
+        >
           <option value="option1">First Term</option>
           <option value="option2">Second Term</option>
         </Select>

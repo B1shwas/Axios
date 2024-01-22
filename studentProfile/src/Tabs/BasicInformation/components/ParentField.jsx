@@ -10,16 +10,16 @@ import {
   Table,
   Box,
   Icon,
+  Img,
 } from "@chakra-ui/react";
 import CustomButton from "../../../components/Reusable Button/CustomButton";
-import { RiUserAddFill } from "react-icons/ri";
+import { MdPersonAddAlt1 } from "react-icons/md";
 import { IoAdd } from "react-icons/io5";
-import { RiDeleteBin6Fill } from "react-icons/ri";
 
 const ParentField = () => {
   return (
     <Stack gap="12px">
-      <Flex justify="space-between">
+      <Flex justify="space-between" flexDir={{ base: "column", sm: "row" }}>
         <Text fontSize="18px" fontWeight="600" mt="5px">
           Parents
         </Text>
@@ -33,7 +33,7 @@ const ParentField = () => {
           />
           <CustomButton
             bg="#7E8AC7"
-            icon={RiUserAddFill}
+            icon={MdPersonAddAlt1}
             label="Register Parent"
             textColor="white"
             hoverBg="#788ab9"
@@ -41,7 +41,7 @@ const ParentField = () => {
         </Flex>
       </Flex>
       <Box borderWidth="1px" borderRadius="md" overflow="scroll">
-        <Table variant="simple">
+        <Table variant="simple" fontWeight="semibold" fontSize="12px">
           <Thead bg="#f5f5f6">
             <Tr>
               <Th borderBottomWidth="1px" borderRightWidth="1px">
@@ -71,8 +71,12 @@ const ParentField = () => {
               </Td>
               <Td borderBottomWidth="1px">
                 <Icon
-                  as={RiDeleteBin6Fill}
-                  style={{ color: "#ED5565", fontSize: "20px" }}
+                  as={Img}
+                  src="/delete.png"
+                  bg="#ED5565"
+                  p="6px"
+                  boxSize="22px"
+                  borderRadius="4px"
                 />
               </Td>
             </Tr>
@@ -88,8 +92,12 @@ const ParentField = () => {
               </Td>
               <Td borderBottomWidth="1px">
                 <Icon
-                  as={RiDeleteBin6Fill}
-                  style={{ color: "#ED5565", fontSize: "20px" }}
+                  as={Img}
+                  src="/delete.png"
+                  bg="#ED5565"
+                  p="6px"
+                  boxSize="22px"
+                  borderRadius="4px"
                 />
               </Td>
             </Tr>

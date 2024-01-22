@@ -15,18 +15,44 @@ const selectedTabStyles = {
 const TabComponent = () => {
   return (
     <Tabs size="md" variant="enclosed">
-      <TabList>
-        <Tab _selected={selectedTabStyles}>Basic Information</Tab>
-        <Tab _selected={selectedTabStyles}>Marks</Tab>
-        <Tab _selected={selectedTabStyles}>Fee History</Tab>
-        <Tab _selected={selectedTabStyles}>Remarks</Tab>
+      <TabList
+        whiteSpace={{ base: "nowrap", sm: "none" }}
+      >
+        <Tab
+          _selected={selectedTabStyles}
+          fontSize={{ base: "12px", md: "14px", lg: "16px" }}
+          px={{ base: "10px", md: "16px" }}
+        >
+          Basic Information
+        </Tab>
+        <Tab
+          _selected={selectedTabStyles}
+          fontSize={{ base: "12px", md: "14px", lg: "16px" }}
+          px={{ base: "10px", md: "16px" }}
+        >
+          Marks
+        </Tab>
+        <Tab
+          _selected={selectedTabStyles}
+          fontSize={{ base: "12px", md: "14px", lg: "16px" }}
+          px={{ base: "10px", md: "16px" }}
+        >
+          Fee History
+        </Tab>
+        <Tab
+          _selected={selectedTabStyles}
+          fontSize={{ base: "12px", md: "14px", lg: "16px" }}
+          px={{ base: "10px", md: "16px" }}
+        >
+          Remarks
+        </Tab>
       </TabList>
       <TabPanels>
         <TabPanel>
           <BasicInformation />
         </TabPanel>
-        <TabPanel>
-          <Marks/>
+        <TabPanel pl={{base:"0px", md:"1rem"}}>
+          <Marks />
         </TabPanel>
         <TabPanel>
           <FeeHistory />

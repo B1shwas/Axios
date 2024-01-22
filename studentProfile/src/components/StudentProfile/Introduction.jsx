@@ -9,7 +9,7 @@ const Introduction = () => {
       <Stack gap="24px">
         <Stack gap="16px">
           <IntroductionTop />
-          <Flex justify="space-between" flexWrap="wrap">
+          <Flex justifyContent={{base:"center", sm:"space-between"}} flexWrap="wrap">
             <StudentImageDiv />
             <AttendenceCard />
           </Flex>

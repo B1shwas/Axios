@@ -2,8 +2,8 @@ import { Box, Table, Tbody, Th, Thead, Tr, Td } from "@chakra-ui/react";
 import { dueData } from "../data";
 const DueTab = () => {
   return (
-    <Box borderWidth="1px" borderRadius="md" overflow="hidden">
-      <Table variant="simple">
+    <Box borderWidth="1px" borderRadius="md" overflow="scroll">
+      <Table variant="simple" fontSize="12px" fontWeight="semibold">
         <Thead bg="#f5f5f6">
           <Tr>
             <Th borderBottomWidth="1px" borderRightWidth="1px">

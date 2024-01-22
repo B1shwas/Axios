@@ -5,12 +5,13 @@ const UpperDiv = () => {
     <Flex
       justify="space-between"
       flexWrap={{ md: "wrap", sm: "wrap", base: "wrap" }}
+      flexDir={{base:"column", md:"row"}}
     >
       <Text fontSize="18px" fontWeight="600" py="8px">
         Fee History
       </Text>
       <Card px="16px" py="8px" bg="#F5F5F5">
-        <Flex gap="24px">
+        <Flex gap={{base:"0px" , md:"24px"}} flexDir={{base:"column", md:"row"}}>
           <Flex fontSize="12px" fontWeight="semibold" gap="8px">
             <Text color="#333333" letterSpacing="1.5px" lineHeight="24px">
               DUE AMOUNT:
@@ -19,7 +20,7 @@ const UpperDiv = () => {
               Rs.3000
             </Text>
           </Flex>
-          <Divider orientation="vertical" borderWidth="1px" />
+          <Divider orientation="vertical" borderWidth="1px" display={{base:"none", xl:"block"}} />
           <Flex fontSize="12px" fontWeight="semibold" gap="8px">
             <Text color="#333333" letterSpacing="1.5px" lineHeight="24px">
               ADVANCED:

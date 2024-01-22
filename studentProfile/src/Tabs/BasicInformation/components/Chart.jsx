@@ -1,5 +1,6 @@
 import { Card, Divider, Flex, Text } from "@chakra-ui/react";
 import Chart from "react-apexcharts";
+
 const ChartBar = () => {
   const options = {
     series: [12, 3, 5],
@@ -9,8 +10,18 @@ const ChartBar = () => {
       pie: {
         expandOnClick: false,
         donut: {
+          size: "70%",
           labels: {
-            show: false,
+            show: true,
+            total: {
+              show: true,
+              label: "Total Days",
+              fontSize: "14px",
+              color: "#333333",
+            },
+            value: {
+              fontSize: "34px",
+            },
             style: {
               fontFamily: "Noto Sans",
             },
@@ -18,6 +29,22 @@ const ChartBar = () => {
         },
       },
     },
+    responsive: [
+      {
+        breakpoint: 500,
+        options: {
+          plotOptions: {
+            pie: {
+              donut: {
+                labels: {
+                  show: false,
+                },
+              },
+            },
+          },
+        },
+      },
+    ],
     dataLabels: {
       enabled: false,
       style: {
@@ -27,6 +54,7 @@ const ChartBar = () => {
   };
 
   const series = [12, 3, 5];
+
   return (
     <Card p="16px" h="261px">
       <Text fontSize="16px" lineHeight="24px">

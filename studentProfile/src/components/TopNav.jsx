@@ -1,23 +1,19 @@
-import { useDisclosure } from "@chakra-ui/react";
 import {
-  Button,
-  Flex,
-  Icon,
-  Img,
-  Input,
-  Popover,
-  PopoverArrow,
-  PopoverCloseButton,
-  PopoverContent,
-  PopoverFooter,
-  PopoverTrigger,
-  Portal,
-  Text,
+  InputGroup,
+  InputLeftElement,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  useDisclosure,
 } from "@chakra-ui/react";
+import { Button, Flex, Icon, Img, Input, Text } from "@chakra-ui/react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import React from "react";
 import SideDrawer from "./SideDrawer";
+import { FaSearch } from "react-icons/fa";
+import { IoChevronDownCircleOutline } from "react-icons/io5";
 
 const TopNav = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -35,28 +31,42 @@ const TopNav = () => {
       <Flex
         marginTop="16px"
         marginLeft="34px"
-        justifyContent={{ lg: "space-between", md: "center" }}
         w="1103px"
-        gap="10px"
-        flexDir={{ lg: "row", sm: "column" }}
+        flexDir={{ base: "column", lg: "row" }}
+        justify={{ base: "center", lg: "space-between" }}
       >
-        <Icon
-          as={GiHamburgerMenu}
-          onClick={onOpen}
-          display={{
-            lg: "block",
-            xl: "none",
-          }}
-          fontSize="20px"
-          marginTop={{ lg: "10px" }}
-        />
-        <SideDrawer onClose={onClose} isOpen={isOpen} />
-        <Input
-          w={{ xl: "434px", lg: "390px", md: "70vw", sm: "70vw", base: "70vw" }}
-          h="52px"
-          variant="filled"
-          placeholder="Search..."
-        />
+        <Flex gap="20px">
+          <Icon
+            as={GiHamburgerMenu}
+            onClick={onOpen}
+            display={{
+              lg: "block",
+              xl: "none",
+            }}
+            fontSize="20px"
+            marginTop={{ lg: "13px" }}
+          />
+          <SideDrawer onClose={onClose} isOpen={isOpen} />
+          <InputGroup h="52px">
+            <InputLeftElement
+              h={{ base: "30px", sm: "35px", md: "40px", lg: "52px" }}
+              pointerEvents="none"
+              children={<FaSearch color="#939eaf" />}
+            />
+            <Input
+              w={{
+                xl: "434px",
+                lg: "390px",
+                md: "70vw",
+                sm: "70vw",
+                base: "70vw",
+              }}
+              h={{ base: "30px", sm: "35px", md: "40px", lg: "52px" }}
+              variant="filled"
+              placeholder="Search..."
+            />
+          </InputGroup>
+        </Flex>
         <Flex alignItems="center" gap="14px">
           <Img
             src="/admin1.png"
@@ -65,8 +75,8 @@ const TopNav = () => {
             h={{ lg: "50px", md: "35px", sm: "30px", base: "27px" }}
             display={{ lg: "block", sm: "none" }}
           />
-          <Popover>
-            <PopoverTrigger>
+          <Menu>
+            <MenuButton>
               <Flex alignItems="center" gap="8px">
                 <Text
                   letterSpacing="2px"
@@ -79,17 +89,12 @@ const TopNav = () => {
                 </Text>
                 <Icon as={MdOutlineKeyboardArrowDown} />
               </Flex>
-            </PopoverTrigger>
-            <Portal>
-              <PopoverContent>
-                <PopoverArrow />
-                <PopoverCloseButton />
-                <PopoverFooter d="flex" justifyContent="flex-end">
-                  <Button variant="outline">Logout</Button>
-                </PopoverFooter>
-              </PopoverContent>
-            </Portal>
-          </Popover>
+            </MenuButton>
+            <MenuList>
+              <MenuItem>Support</MenuItem>
+              <MenuItem>Logout</MenuItem>
+            </MenuList>
+          </Menu>
         </Flex>
       </Flex>
     </Flex>

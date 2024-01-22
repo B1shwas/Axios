@@ -1,6 +1,6 @@
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
 import DueTab from "./DueTab";
-import PaidTab from "./PaidTab";
+import PaidTab from "./PaidTab"; 
 
 const FeeTab = () => {
   return (
@@ -11,10 +11,10 @@ const FeeTab = () => {
       </TabList>
 
       <TabPanels>
-        <TabPanel>
+        <TabPanel pl={{ base: "0px", md: "1rem" }}>
           <DueTab />
         </TabPanel>
-        <TabPanel>
+        <TabPanel pl={{ base: "0px", md: "1rem" }}>
           <PaidTab />
         </TabPanel>
       </TabPanels>
