@@ -5,7 +5,7 @@ const TopNav = () => {
   return (
     <>
       <div className="topnav-container">
-        <h1 style={{ cursor: "pointer", color: "#e3a42c" }}>Axios...</h1>
+        <h1 style={{ cursor: "pointer", color: "#e3a42c" }}>Miligram</h1>
         <MyForm />
       </div>
     </>
