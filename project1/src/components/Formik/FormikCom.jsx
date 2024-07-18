@@ -53,24 +53,28 @@ const FormikCom = ({ editVal, onClose }) => {
 
       editCard(values.id, updatedCard);
       setEditMode(false);
+      onClose();
     } else {
-      const newItem = {
-        id: values.id,
-        title: values.title,
-        description: values.description,
-        category: values.category,
-        date: new Date().toLocaleDateString("en-US", {
-          month: "2-digit",
-          day: "2-digit",
-          hour: "2-digit",
-          minute: "2-digit",
-        }),
-      };
+      if (values.category) {
+        const newItem = {
+          id: values.id,
+          title: values.title,
+          description: values.description,
+          category: values.category,
+          date: new Date().toLocaleDateString("en-US", {
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+        };
 
-      updateArr(newItem);
+        updateArr(newItem);
+        onClose();
+      } else {
+        alert("Please select category or add category if not available");
+      }
     }
-
-    onClose();
   };
 
   const handleSubmitCategory = (values) => {
