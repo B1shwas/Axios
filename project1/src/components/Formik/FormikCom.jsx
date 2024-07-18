@@ -48,7 +48,7 @@ const FormikCom = ({ editVal, onClose }) => {
         id: values.id,
         title: values.title,
         description: values.description,
-        category: values.category,
+        category: values.category || editCategorySelect,
       };
 
       editCard(values.id, updatedCard);
